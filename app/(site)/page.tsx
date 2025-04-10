@@ -27,7 +27,7 @@ const Page = () => {
         setError("Hatalı kullanıcı ID veya şifre.");
       }
     } catch (err) {
-      setError("Sunucu hatası oluştu.");
+      setError("Sunucu hatası oluştu."+err);
     } finally {
       setLoading(false);
     }

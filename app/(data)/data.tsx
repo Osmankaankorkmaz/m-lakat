@@ -5,7 +5,7 @@ export interface Data {
     companyNumber: number;
     legalName: string;
     tatNumber: string;
-    vatNumber: Number;
+    vatNumber:number;
     address: string;
   };
   bankDetails: {
