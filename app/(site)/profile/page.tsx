@@ -1,13 +1,6 @@
 import Image from "next/image";
 import { FaEdit } from "react-icons/fa";
 import { data } from "../../(data)/data";
-import Link from "next/link";
-import { FaUser } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { RiNewspaperLine } from "react-icons/ri";
-import { IoMdMail } from "react-icons/io";
-import { HiOutlineDocumentReport } from "react-icons/hi";
-import { MdLogout } from "react-icons/md";
 export default function Home() {
   
   const maskEmail = (email: string): string => {
