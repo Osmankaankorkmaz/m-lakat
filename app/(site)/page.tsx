@@ -104,10 +104,10 @@ const Page = () => {
             Register as
           </p>
           <div className="flex gap-4">
-            <button className="px-6 py-3 bg-teal-300 text-white font-semibold rounded-md hover:bg-blue-400 transition">
+            <button onClick={()=>{router.push("register/operator")}} className="px-6 py-3 bg-teal-300 text-white font-semibold rounded-md hover:bg-blue-400 transition">
               Operator
             </button>
-            <button className="px-6 py-3 bg-teal-300 text-white font-semibold rounded-md hover:bg-blue-400 transition">
+            <button onClick={()=>{router.push("register/seller")}} className="px-6 py-3 bg-teal-300 text-white font-semibold rounded-md hover:bg-blue-400 transition">
               Seller
             </button>
           </div>
