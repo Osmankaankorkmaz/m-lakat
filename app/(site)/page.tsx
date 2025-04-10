@@ -3,31 +3,36 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const router = useRouter();
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      const response = await axios.post("https://api.tripkolic.com/api/v1/task/login", {
-        userId,
-        password,
-      });
+      const response = await axios.post(
+        "https://api.tripkolic.com/api/v1/task/login",
+        {
+          userId,
+          password,
+        }
+      );
 
       if (response.data.status === true) {
         alert("Giriş başarılı!");
+        router.push("/profile")
       } else {
         setError("Hatalı kullanıcı ID veya şifre.");
       }
     } catch (err) {
-      setError("Sunucu hatası oluştu."+err);
+      setError("Sunucu hatası oluştu." + err);
     } finally {
       setLoading(false);
     }
@@ -35,12 +40,21 @@ const Page = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4">
-      <Image src="/logo.png" alt="Logo" width={120} height={120} className="mb-4" />
+      <Image
+        src="/logo.png"
+        alt="Logo"
+        width={120}
+        height={120}
+        className="mb-4"
+      />
       <h1 className="text-3xl font-bold text-orange-400 mb-6">Login</h1>
 
       <form onSubmit={handleLogin} className="w-full max-w-sm p-6 space-y-4">
         <div className="flex flex-col">
-          <label htmlFor="userId" className="mb-1 text-sm font-medium text-gray-700">
+          <label
+            htmlFor="userId"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
             User ID
           </label>
           <input
@@ -53,7 +67,10 @@ const Page = () => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="password" className="mb-1 text-sm font-medium text-gray-700">
+          <label
+            htmlFor="password"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
             Password
           </label>
           <input
@@ -83,7 +100,9 @@ const Page = () => {
         </button>
 
         <div className="flex flex-col items-center justify-center bg-white h-40 w-full rounded-t-2xl py-4">
-          <p className="text-orange-400 font-medium text-lg mb-4">Register as</p>
+          <p className="text-orange-400 font-medium text-lg mb-4">
+            Register as
+          </p>
           <div className="flex gap-4">
             <button className="px-6 py-3 bg-teal-300 text-white font-semibold rounded-md hover:bg-blue-400 transition">
               Operator

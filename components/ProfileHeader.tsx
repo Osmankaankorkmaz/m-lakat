@@ -8,7 +8,7 @@ import { BsBoxFill } from "react-icons/bs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Header = () => {
+const ProfileHeader = () => {
   const pathname = usePathname();
 
   return (
@@ -55,4 +55,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default ProfileHeader;

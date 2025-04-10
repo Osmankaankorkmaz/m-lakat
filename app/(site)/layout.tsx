@@ -1,6 +1,6 @@
 "use client";
-import Header from "@/components/Header";
 import MenuBar from "@/components/MenuBar";
+import ProfileHeader from "@/components/ProfileHeader";
 import { usePathname } from "next/navigation";
 import React, { ReactNode } from "react";
 
@@ -12,10 +12,10 @@ const Layout = ({ children }: Props) => {
   const pathname = usePathname();
 
   const isAuthPage = pathname === "/" || pathname.includes("register");
-
+const isProfilePage = pathname.includes("profile")
   return (
     <div className="bg-gray-200 min-h-screen">
-      {!isAuthPage && <Header />}
+      {isProfilePage && < ProfileHeader/>}
 
       {children}
 
